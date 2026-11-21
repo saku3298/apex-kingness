@@ -1,140 +1,140 @@
 {
-  "site": {
-    "name": "アペックスキングネス",
-    "url": "https://saku3298.github.io/apex-kingness/",
-    "description": "SAKU制作のオリジナル漫画『アペックスキングネス』。人類はまだ生まれていない。地球人の座をかけた、夢の中の戦い。第1話「弱者こそ強者」を公開中。",
-    "copyright": "© SAKU / アペックスキングネス"
+ "site": {
+  "name": "アペックスキングネス",
+  "url": "https://saku3298.github.io/apex-kingness/",
+  "description": "SAKU制作のオリジナル漫画『アペックスキングネス』。人類はまだ生まれていない。地球人の座をかけた、夢の中の戦い。第1話「弱者こそ強者」を公開中。",
+  "copyright": "© SAKU / アペックスキングネス"
+ },
+ "work": {
+  "title": "アペックスキングネス",
+  "author": "SAKU",
+  "summary": "家族を失ったいとこ・底帝（ていてい）が、勝の家にやって来る。底帝と関わった者は、夜に死ぬという噂。眠りの先にあるのは、夢で死ねば現実でも死ぬ悪夢の世界。人類とは別の存在「亜人」たちが、それぞれの未来のために争っていた。弱者こそ強者。底帝の戦いが始まる。",
+  "author_portrait_alt": "作者SAKUの漫画風自画像",
+  "title_break": "アペックス|キングネス",
+  "catch_copy": "人類はまだ生まれていない"
+ },
+ "episodes": [
+  {
+   "no": 1,
+   "title": "弱者こそ強者",
+   "date": "2026-11-21"
+  }
+ ],
+ "volumes": [
+  {
+   "no": 1,
+   "summary": "第1話を収録",
+   "episodes": [
+    1
+   ]
+  }
+ ],
+ "related": [
+  {
+   "title": "SAKU作品集",
+   "author": "SAKU",
+   "year": "2021年〜",
+   "tags": [
+    "作品集"
+   ],
+   "cover": "saku-works-cover",
+   "cover_alt": "SAKU作品集",
+   "url": "https://saku3298.github.io/saku-works/",
+   "new_tab": true
   },
-  "work": {
-    "title": "アペックスキングネス",
-    "author": "SAKU",
-    "summary": "家族を失ったいとこ・底帝（ていてい）が、勝の家にやって来る。底帝と関わった者は、夜に死ぬという噂。眠りの先にあるのは、夢で死ねば現実でも死ぬ悪夢の世界。人類とは別の存在「亜人」たちが、それぞれの未来のために争っていた。弱者こそ強者。底帝の戦いが始まる。",
-    "author_portrait_alt": "作者SAKUの漫画風自画像",
-    "title_break": "アペックス|キングネス",
-    "catch_copy": "人類はまだ生まれていない"
+  {
+   "title": "りんごちゃん",
+   "author": "れ。",
+   "year": "2023年〜",
+   "tags": [
+    "話",
+    "コミックス"
+   ],
+   "cover": "ringo-chan-cover",
+   "cover_alt": "りんごちゃん 第1巻表紙",
+   "badge": "休載中",
+   "url": "https://saku3298.github.io/ringo-chan/",
+   "new_tab": true
   },
-  "episodes": [
-    {
-      "no": 1,
-      "title": "弱者こそ強者",
-      "date": "2026-11-21"
-    }
-  ],
-  "volumes": [
-    {
-      "no": 1,
-      "summary": "第1話を収録",
-      "episodes": [
-        1
-      ]
-    }
-  ],
-  "related": [
-    {
-      "title": "SAKU作品集",
-      "author": "SAKU",
-      "year": "2021年〜",
-      "tags": [
-        "作品集"
-      ],
-      "cover": "saku-works-cover",
-      "cover_alt": "SAKU作品集",
-      "url": "https://saku3298.github.io/saku-works/",
-      "new_tab": true
-    },
-    {
-      "title": "りんごちゃん",
-      "author": "れ。",
-      "year": "2023年〜",
-      "tags": [
-        "話",
-        "コミックス"
-      ],
-      "cover": "ringo-chan-cover",
-      "cover_alt": "りんごちゃん 第1巻表紙",
-      "badge": "休載中",
-      "url": "https://saku3298.github.io/ringo-chan/",
-      "new_tab": true
-    },
-    {
-      "title": "オーガキングダム",
-      "author": "YUURI・SAKU",
-      "year": "2025年〜",
-      "tags": [
-        "話",
-        "コミックス"
-      ],
-      "cover": "ogre-kingdom-cover",
-      "cover_alt": "オーガキングダム 第8巻表紙",
-      "url": "https://saku3298.github.io/ogre-kingdom/",
-      "new_tab": true
-    },
-    {
-      "title": "リカリカイ",
-      "author": "SAKU",
-      "year": "2026年〜",
-      "tags": [
-        "話",
-        "コミックス"
-      ],
-      "cover": "rikarikai-cover",
-      "cover_alt": "リカリカイ 第1巻表紙",
-      "url": "https://saku3298.github.io/rikarikai/",
-      "new_tab": true
-    }
-  ],
-  "site_link": {
-    "title": "SAKU作品集",
-    "url": "https://saku3298.github.io/saku-works/",
-    "description": "短編マンガをまとめた作品集",
-    "image": "saku-works-cover",
-    "new_tab": true
+  {
+   "title": "オーガキングダム",
+   "author": "YUURI・SAKU",
+   "year": "2025年〜",
+   "tags": [
+    "話",
+    "コミックス"
+   ],
+   "cover": "ogre-kingdom-cover",
+   "cover_alt": "オーガキングダム 第8巻表紙",
+   "url": "https://saku3298.github.io/ogre-kingdom/",
+   "new_tab": true
   },
-  "characters": [
+  {
+   "title": "リカリカイ",
+   "author": "SAKU",
+   "year": "2026年〜",
+   "tags": [
+    "話",
+    "コミックス"
+   ],
+   "cover": "rikarikai-cover",
+   "cover_alt": "リカリカイ 第1巻表紙",
+   "url": "https://saku3298.github.io/rikarikai/",
+   "new_tab": true
+  }
+ ],
+ "site_link": {
+  "title": "SAKU作品集",
+  "url": "https://saku3298.github.io/saku-works/",
+  "description": "短編マンガをまとめた作品集",
+  "image": "saku-works-cover",
+  "new_tab": true
+ },
+ "characters": [
+  {
+   "name": "西京底帝",
+   "reading": "さいきょう ていてい",
+   "image": "teitei",
+   "role": "主人公",
+   "main": true,
+   "desc": "家族を失った9歳の夢人。悪夢の世界で戦う。"
+  },
+  {
+   "name": "西京勝",
+   "reading": "さいきょう かつ",
+   "image": "katsu",
+   "desc": "底帝のいとこ。自信家で完璧な高校生。",
+   "note": "別の作品では「まさる」",
+   "cameo": [
     {
-      "name": "西京底帝",
-      "reading": "さいきょう ていてい",
-      "image": "teitei",
-      "role": "主人公",
-      "main": true,
-      "desc": "家族を失った9歳。悪夢の世界で戦う。"
-    },
-    {
-      "name": "西京勝",
-      "reading": "さいきょう かつ",
-      "image": "katsu",
-      "desc": "底帝のいとこ。自信家で完璧な高校生。",
-      "note": "別の作品では「まさる」",
-      "cameo": [
-        {
-          "url": "https://saku3298.github.io/ogre-kingdom/",
-          "title": "オーガキングダム",
-          "icon": "ogre-kingdom-cover"
-        }
-      ]
-    },
-    {
-      "name": "西京強",
-      "reading": "さいきょう つよし",
-      "image": "tsuyoshi",
-      "desc": "勝の弟。最強でカッコいい男にあこがれている。",
-      "cameo": [
-        {
-          "url": "https://saku3298.github.io/ogre-kingdom/",
-          "title": "オーガキングダム",
-          "icon": "ogre-kingdom-cover"
-        },
-        {
-          "url": "https://saku3298.github.io/saku-works/works/tsuyoku-naritai-bonjin-tachi/",
-          "title": "強くなりたい凡人達",
-          "icon": "tsuyoku-naritai-bonjin-tachi-cover"
-        }
-      ]
-    },
-    {
-      "name": "メタスラちゃん",
-      "image": "metasura",
-      "desc": "夢の世界の夢人。現実の姿はまだ謎。"
+     "url": "https://saku3298.github.io/ogre-kingdom/",
+     "title": "オーガキングダム",
+     "icon": "ogre-kingdom-cover"
     }
-  ]
+   ]
+  },
+  {
+   "name": "西京強",
+   "reading": "さいきょう つよし",
+   "image": "tsuyoshi",
+   "desc": "勝の弟。最強でカッコいい男にあこがれている。",
+   "cameo": [
+    {
+     "url": "https://saku3298.github.io/ogre-kingdom/",
+     "title": "オーガキングダム",
+     "icon": "ogre-kingdom-cover"
+    },
+    {
+     "url": "https://saku3298.github.io/saku-works/works/tsuyoku-naritai-bonjin-tachi/",
+     "title": "強くなりたい凡人達",
+     "icon": "tsuyoku-naritai-bonjin-tachi-cover"
+    }
+   ]
+  },
+  {
+   "name": "メタスラちゃん",
+   "image": "metasura",
+   "desc": "ていていの友だち。夢の中の姿がメタスラちゃん。現実の姿はまだ謎。"
+  }
+ ]
 }
