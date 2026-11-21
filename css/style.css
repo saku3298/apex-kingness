@@ -74,3 +74,8 @@ body{-webkit-font-smoothing:antialiased;-webkit-tap-highlight-color:transparent}
 
 /* 新作（リンクなし）の紹介カード：ホバー演出なし */
 .author-work-card.is-static{cursor:default}.author-work-card.is-static:hover{background:transparent}.author-work-card.is-static:hover .author-work-title{text-decoration:none}
+
+/* 話の公開日（ジャンププラス風：薄いグレー、新しい話に「新着」） */
+.episode-date{margin-top:6px;color:#8a8a8f;font-size:14px;font-weight:500;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.episode-date .new-badge{border:1px solid #d9d9dc;color:#ef3b35;background:#fff;font-size:12px;font-weight:800;line-height:1;padding:3px 6px;border-radius:2px}
+@media(max-width:600px){.episode-date{font-size:13px;margin-top:4px}}

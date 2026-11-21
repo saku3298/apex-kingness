@@ -90,6 +90,14 @@ def head(title, desc, url, typ, prefix="", theme=False):
 '''
 
 
+def date_html(ep):
+    """話の公開日（work.json の episodes[].date に "2026-11-21" の形で書く）。なければ表示しない。"""
+    d = ep.get("date")
+    if not d:
+        return ""
+    y, m, dd = (int(x) for x in d.split("-"))
+    return f'<div class="episode-date" data-date="{d}">{y}年{m}月{dd}日</div>'
+
 def vol_cover(v):
     return img(f"images/volumes/volume{v['no']:02d}-cover")
 
@@ -101,7 +109,7 @@ def index_page():
     rows = "".join(
         f'<a class="episode-row" href="episode{ep["no"]}.html" data-ep="{ep["no"]}">'
         f'<img class="episode-thumb" src="{img(f"images/thumbs/episode{ep["no"]:02d}")}" alt="第{ep["no"]}話 {e(ep["title"])}">'
-        f'<div class="episode-meta"><div class="episode-title">第{ep["no"]}話 <span>{e(ep["title"])}</span></div></div>'
+        f'<div class="episode-meta"><div class="episode-title">第{ep["no"]}話 <span>{e(ep["title"])}</span></div>{date_html(ep)}</div>'
         f'<div class="episode-read">読む</div></a>' for ep in episodes)
     tiles = "".join(
         f'<a class="volume-tile" href="volume{v["no"]}.html"><img src="{vol_cover(v)}" alt="{e(TITLE)} 第{v["no"]}巻表紙">'

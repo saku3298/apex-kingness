@@ -32,8 +32,9 @@ SAKU制作のオリジナル漫画『アペックスキングネス』の公開�
    - サムネイル: `images/thumbs/episode02.jpg`（横長 568×216 程度）
 2. `work.json` の `episodes` に追記する
    ```json
-   { "no": 2, "title": "第2話のタイトル" }
+   { "no": 2, "title": "第2話のタイトル", "date": "2026-12-05" }
    ```
+   `date` は公開日です（話一覧に「2026年12月5日」と出ます。公開から30日以内は「新着」も付きます）。
    単行本にも入れる場合は、`volumes` の該当巻の `episodes` に `2` を足します（新しい巻は `images/volumes/volume02-cover.jpg` を置いて、`volumes` に追加）。
 3. 変換と生成を実行する
    ```
