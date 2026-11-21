@@ -98,6 +98,29 @@ def date_html(ep):
     y, m, dd = (int(x) for x in d.split("-"))
     return f'<div class="episode-date" data-date="{d}">{y}年{m}月{dd}日</div>'
 
+def characters_html():
+    """登場人物（work.json の characters）。なければ何も出さない。"""
+    chars = data.get("characters") or []
+    if not chars:
+        return ""
+    cards = []
+    for c in chars:
+        role = f'<span class="char-role">{e(c["role"])}</span>' if c.get("role") else ""
+        reading = f'<span class="char-reading">{e(c["reading"])}</span>' if c.get("reading") else ""
+        note = f'<p class="char-note">{e(c["note"])}</p>' if c.get("note") else ""
+        links = "".join(
+            f'<a class="char-cameo" href="{e(x["url"])}" target="_blank" rel="noopener">'
+            + (f'<img src="{img("images/related/" + x["icon"])}" alt="">' if x.get("icon") else "")
+            + f'<span>{e(x["title"])}</span><i aria-hidden="true">›</i></a>'
+            for x in c.get("cameo", []))
+        cameo = f'<span class="char-cameo-head">ほかの作品でも会える</span>{links}' if links else ""
+        cards.append(
+            f'<li class="char-card{" is-main" if c.get("main") else ""}">'
+            f'<img src="{img("images/characters/" + c["image"])}" alt="{e(c["name"])}" loading="lazy">'
+            f'{role}<strong class="char-name">{e(c["name"])}</strong>{reading}'
+            f'<p class="char-desc">{e(c["desc"])}</p>{note}<div class="char-cameos">{cameo}</div></li>')
+    return f'<div class="info-section char-section"><h2>登場人物</h2><ul class="char-list">{"".join(cards)}</ul></div>'
+
 def vol_cover(v):
     return img(f"images/volumes/volume{v['no']:02d}-cover")
 
@@ -138,7 +161,7 @@ def index_page():
 <nav class="jp-tabs" aria-label="作品メニュー"><button class="jp-tab active" data-tab="episodes">話</button><button class="jp-tab" data-tab="comics">コミックス</button><button class="jp-tab" data-tab="info">作品情報</button></nav>
 <section id="episodes" class="jp-panel active"><div class="episode-sort-header"><span>全{len(episodes)}話</span><div class="sort-switch episode-sort"><button type="button" class="sort-btn active" data-order="asc">1話から</button><span>|</span><button type="button" class="sort-btn" data-order="desc">最新話から</button></div></div>{RANGE_BAR}<div class="episode-list">{rows}</div></section>
 <section id="comics" class="jp-panel"><div class="comics-header"><strong>コミックス</strong><div class="comics-sort"><span class="active">新しい順</span></div></div><div class="volume-list">{tiles}</div></section>
-<section id="info" class="jp-panel info-panel"><div class="work-intro"><div class="work-catch">{e(TITLE)}</div><p class="work-summary">{e(work["summary"])}</p><div class="author-profile"><img src="{img("images/work/author-portrait")}" alt="{e(work["author_portrait_alt"])}"><div><span>作者</span><strong>{e(work["author"])}</strong></div></div></div>{related_html}</section>
+<section id="info" class="jp-panel info-panel"><div class="work-intro"><div class="work-catch">{e(TITLE)}</div><p class="work-summary">{e(work["summary"])}</p><div class="author-profile"><img src="{img("images/work/author-portrait")}" alt="{e(work["author_portrait_alt"])}"><div><span>作者</span><strong>{e(work["author"])}</strong></div></div></div>{characters_html()}{related_html}</section>
 </div><footer>{e(site["copyright"])}{footer_link}</footer>
 <script src="js/top.js?v={V_TOP}"></script></body></html>
 '''

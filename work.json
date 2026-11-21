@@ -60,5 +60,52 @@
     "description": "短編マンガをまとめた作品集",
     "image": "saku-works-cover",
     "new_tab": true
-  }
+  },
+  "characters": [
+    {
+      "name": "西京底帝",
+      "reading": "さいきょう ていてい",
+      "image": "teitei",
+      "role": "主人公",
+      "main": true,
+      "desc": "家族を失った9歳の少女。悪夢の世界で戦う。"
+    },
+    {
+      "name": "西京勝",
+      "reading": "さいきょう かつ",
+      "image": "katsu",
+      "desc": "底帝のいとこ。自信家で完璧な18歳。",
+      "note": "別の作品では「まさる」",
+      "cameo": [
+        {
+          "url": "https://saku3298.github.io/ogre-kingdom/",
+          "title": "オーガキングダム",
+          "icon": "ogre-kingdom-cover"
+        }
+      ]
+    },
+    {
+      "name": "西京強",
+      "reading": "さいきょう つよし",
+      "image": "tsuyoshi",
+      "desc": "勝の弟。最強でカッコいい男にあこがれている。",
+      "cameo": [
+        {
+          "url": "https://saku3298.github.io/ogre-kingdom/",
+          "title": "オーガキングダム",
+          "icon": "ogre-kingdom-cover"
+        },
+        {
+          "url": "https://saku3298.github.io/saku-works/works/tsuyoku-naritai-bonjin-tachi/",
+          "title": "強くなりたい凡人達",
+          "icon": "tsuyoku-naritai-bonjin-tachi-cover"
+        }
+      ]
+    },
+    {
+      "name": "メタスラちゃん",
+      "image": "metasura",
+      "desc": "夢の世界の夢人。現実の姿はまだ謎。"
+    }
+  ]
 }
