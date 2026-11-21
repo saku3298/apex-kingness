@@ -76,3 +76,16 @@ SAKU制作のオリジナル漫画『アペックスキングネス』の公開�
 ```
 
 顔の画像は正方形で `images/characters/` に置きます（400×400程度）。`main` は主人公だけに付けます。
+
+## タイトル・キャッチコピーのフォントについて
+
+トップのタイトルとキャッチコピーには、次の2つのフォントを使っています（どちらもSIL Open Font License）。
+
+- タイトル: Dela Gothic One → `assets/fonts/title.woff2`
+- キャッチコピー: Shippori Mincho B1（ExtraBold）→ `assets/fonts/catch.woff2`
+
+通信量を減らすため、**今使っている文字だけ**を切り出した軽量版です。
+`work.json` の `title` や `catch_copy` を変えて、文字が新しくなったときは、フォントの作り直しが必要です
+（作り直さないと、新しい文字だけ標準のフォントで表示されます）。Claudeに「フォントを作り直して」と頼めば対応できます。
+
+ヒーローの小見出し（赤い線の横の一言）は、今は出していません。出したいときは `work.json` の `work.kicker` に書きます。

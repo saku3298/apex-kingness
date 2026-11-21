@@ -32,6 +32,10 @@ BASE = site["url"].rstrip("/") + "/"
 TITLE = work["title"]
 # タイトルが長いときの改行位置（work.json の work.title_break に「前|後」と書く）。なければそのまま。
 TITLE_HTML = "<br>".join(e(x) for x in work["title_break"].split("|")) if work.get("title_break") else e(TITLE)
+# ヒーローの小見出し（work.json の work.kicker。なければ表示しない）とキャッチコピー（work.catch_copy）
+KICKER = work.get("kicker", "")
+KICKER_HTML = f'<div class="jp-kicker">{e(KICKER)}</div>' if KICKER else ""
+CATCH_HTML = f'<p class="jp-catch">{e(work["catch_copy"])}</p>' if work.get("catch_copy") else ""
 
 
 def ver(path):
@@ -156,7 +160,7 @@ def index_page():
     related_html = f'<div class="info-section"><h2>同じ作者の作品</h2>{cards}</div>' if (related or site_link) else ""
     footer_link = f' ｜ <a href="{e(site_link["url"])}" target="_blank" rel="noopener" style="text-decoration:underline">{e(site_link["title"])}</a>' if site_link else ""
     return head(TITLE, site["description"], BASE, "website") + f'''<body class="top-page"><div class="jp-shell">
-<section class="jp-hero">{hero_img}<div class="jp-hero-right"><div class="jp-hero-text"><div class="jp-kicker">ORIGINAL MANGA</div><div class="jp-logo">{TITLE_HTML}</div></div></div></section>
+<section class="jp-hero">{hero_img}<div class="jp-hero-right"><div class="jp-hero-text">{KICKER_HTML}<div class="jp-logo">{TITLE_HTML}</div>{CATCH_HTML}</div></div></section>
 <section class="jp-info"><h1 class="jp-title">{TITLE_HTML}</h1><div class="jp-author">{e(work["author"])}</div><div class="jp-tags"><span>オリジナル漫画</span><span>全{len(episodes)}話公開中</span></div><div class="jp-actions"><a class="jp-btn primary" href="episode{first["no"]}.html">第{first["no"]}話から読む</a><a class="jp-btn" href="episode{last["no"]}.html">最新話から読む</a></div></section>
 <nav class="jp-tabs" aria-label="作品メニュー"><button class="jp-tab active" data-tab="episodes">話</button><button class="jp-tab" data-tab="comics">コミックス</button><button class="jp-tab" data-tab="info">作品情報</button></nav>
 <section id="episodes" class="jp-panel active"><div class="episode-sort-header"><span>全{len(episodes)}話</span><div class="sort-switch episode-sort"><button type="button" class="sort-btn active" data-order="asc">1話から</button><span>|</span><button type="button" class="sort-btn" data-order="desc">最新話から</button></div></div>{RANGE_BAR}<div class="episode-list">{rows}</div></section>
