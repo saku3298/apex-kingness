@@ -7,7 +7,7 @@
   const LBL = { ja: { title: '題', narr: '語り', say: 'セリフ' }, en: { title: 'Title', narr: 'Narration', say: 'Speech' } };
   let lang = store.get('saku:tr-lang') === 'en' ? 'en' : 'ja';
   let auto = store.get('saku:tr-auto') !== '0';
-  let pages = [0, 0], playing = false, audio = null, queue = [], qi = 0, waitTurn = false;
+  let pages = [0, 0], playing = false, audio = null, player = null, queue = [], qi = 0, waitTurn = false;
   const synth = window.speechSynthesis;
 
   const panel = document.createElement('aside');
@@ -55,7 +55,7 @@
   function mark(i) { const sub = $('.tr-sub'); const ls = linesFor(); sub.textContent = i >= 0 && ls[i] ? (ls[i][lang] || ls[i].ja) : ''; panel.querySelectorAll('.tr-lines li').forEach(li => { const on = Number(li.dataset.i) === i; li.classList.toggle('reading', on); if (on) li.scrollIntoView({ block: 'nearest', behavior: 'smooth' }); }); }
   function stop() {
     playing = false; waitTurn = false; queue = [];
-    if (audio) { audio.pause(); audio = null; }
+    if (player) player.pause(); audio = null;
     if (synth) synth.cancel();
     mark(-1); render();
   }
@@ -79,8 +79,9 @@
     const done = () => setTimeout(step, 300);
     if (lang === 'ja') {
       if (!it.l.audio) { step(); return; }
-      audio = new Audio(it.l.audio); audio.onended = done; audio.onerror = done;
-      const p = audio.play(); if (p && p.catch) p.catch(stop);
+      // スマホ（特にiPhone）は、最初にタップで鳴らした1つの再生器を使い回さないと、続きが鳴らない
+      audio = player; player.onended = done; player.onerror = done; player.src = it.l.audio;
+      const p = player.play(); if (p && p.catch) p.catch(stop);
     } else {
       if (!synth) { stop(); return; }
       const u = new SpeechSynthesisUtterance((it.l.en_say || it.l.en).replace(/…/g, ', ').replace(/^[,\s]+/, ''));
@@ -89,19 +90,28 @@
       u.onend = done; u.onerror = done; synth.speak(u);
     }
   }
+  const SILENCE = 'audio/silence.mp3';
   function play() {
+    if (!player) { player = new Audio(); player.preload = 'auto'; }
     const ls = linesFor();
     queue = ls.map((l, i) => ({ l, i })).filter(x => !x.l.noread);
     qi = 0; playing = true; render();
-    // 文字のないページ（絵だけ）は、少し見せてから次へ
-    if (!queue.length) { setTimeout(() => { if (playing && !queue.length) step(); }, 4000); return; }
+    // 文字のないページ（絵だけ）は、4秒見せてから次へ。日本語は無音の音声を流して、再生を途切れさせない
+    if (!queue.length) {
+      if (lang === 'ja' && player) {
+        player.onended = () => { if (playing && !queue.length) step(); };
+        player.onerror = player.onended; player.src = SILENCE;
+        const p = player.play(); if (p && p.catch) p.catch(stop);
+      } else setTimeout(() => { if (playing && !queue.length) step(); }, 4000);
+      return;
+    }
     step();
   }
   document.addEventListener('saku:page', e => {
     const same = pages[0] === e.detail.start && pages[1] === e.detail.end;
     pages = [e.detail.start, e.detail.end];
     if (same && !waitTurn) return;
-    if (playing && waitTurn) { waitTurn = false; if (audio) audio.pause(); if (synth) synth.cancel(); setTimeout(play, 350); }
+    if (playing && waitTurn) { waitTurn = false; if (player) player.pause(); if (synth) synth.cancel(); setTimeout(play, 350); }
     else if (playing) stop();
     render();
   });
