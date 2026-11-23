@@ -17,32 +17,32 @@
    },
    {
     "kind": "narr",
-    "ja": "地球では……白亜紀",
+    "ja": "地球では…白亜紀",
     "en": "On Earth… the Cretaceous period.",
     "audio": "audio/episode01/p001-03.mp3"
    },
    {
     "kind": "narr",
-    "ja": "人間とは架空の生物だ。あのいつもの日常は、もしも人類が誕生したら……。",
+    "ja": "人間とは架空の生物だ。あのいつもの日常は、もしも人類が誕生したら…。",
     "en": "Humans are imaginary creatures. All that everyday life… is just a \"what if humanity were born.\"",
     "audio": "audio/episode01/p001-04.mp3"
    },
    {
     "kind": "narr",
-    "ja": "誕生するためには、この夢……いや現実で他の誕生候補を倒し、優勝しなければならない……。だが相手も、もしも××種が地球人ならを歩んでいる。",
+    "ja": "誕生するためには、この夢…いや現実で他の誕生候補を倒し、優勝しなければならない…。だが相手も、もしも××種が地球人ならを歩んでいる。",
     "en": "To be born, I have to defeat every other candidate for birth in this dream—no, this reality—and win… But my rivals, too, are living out a \"what if the ×× species were the people of Earth.\"",
     "en_say": "To be born, I have to defeat every other candidate for birth in this dream, no, this reality, and win. But my rivals, too, are living out a what if: what if such-and-such species were the people of Earth.",
     "audio": "audio/episode01/p001-05.mp3"
    },
    {
     "kind": "narr",
-    "ja": "みな、地球に生まれるために……生き残るために……なら",
+    "ja": "みな、地球に生まれるために…生き残るために…なら",
     "en": "All of them, to be born on Earth… to survive… then—",
     "audio": "audio/episode01/p001-06.mp3"
    },
    {
     "kind": "say",
-    "ja": "勝てるものならやってみろ……",
+    "ja": "勝てるものならやってみろ…",
     "en": "Beat me if you can…",
     "audio": "audio/episode01/p001-07.mp3"
    },
@@ -124,9 +124,143 @@
    },
    {
     "kind": "narr",
-    "ja": "何だ……これ。",
+    "ja": "何だ…これ。",
     "en": "What… is this?",
     "audio": "audio/episode01/p003-09.mp3"
+   }
+  ],
+  "4": [
+   {
+    "kind": "narr",
+    "ja": "噂なんだが、アイツに関わるヤツは皆、死ぬんだよ",
+    "en": "Here's the rumor: everyone who gets involved with that kid dies.",
+    "audio": "audio/episode01/p004-01.mp3"
+   },
+   {
+    "kind": "narr",
+    "ja": "その子は家族を始めに失ったんだ…。立て続けにな…",
+    "en": "First that kid lost their family… one after another…",
+    "audio": "audio/episode01/p004-02.mp3"
+   },
+   {
+    "kind": "narr",
+    "ja": "おかしくないか？",
+    "en": "Isn't that strange?",
+    "audio": "audio/episode01/p004-03.mp3"
+   },
+   {
+    "kind": "narr",
+    "ja": "それって偶然だと思うか？ しかも死因は不明",
+    "en": "Do you think that's a coincidence? And the cause of death is unknown.",
+    "audio": "audio/episode01/p004-04.mp3"
+   },
+   {
+    "kind": "narr",
+    "ja": "多分、心臓麻痺",
+    "en": "Probably heart failure.",
+    "audio": "audio/episode01/p004-05.mp3"
+   },
+   {
+    "kind": "narr",
+    "ja": "そして毎回、夜にあの子と手を繋いで寝た者が死ぬ",
+    "en": "And every time, whoever sleeps holding that kid's hand at night… dies.",
+    "audio": "audio/episode01/p004-06.mp3"
+   }
+  ],
+  "5": [
+   {
+    "kind": "narr",
+    "ja": "悪夢の子",
+    "en": "The Nightmare Child.",
+    "audio": "audio/episode01/p005-01.mp3"
+   },
+   {
+    "kind": "narr",
+    "ja": "てい…てね。",
+    "en": "Tei… tei.",
+    "audio": "audio/episode01/p005-02.mp3"
+   }
+  ],
+  "6": [
+   {
+    "kind": "narr",
+    "ja": "霊感0(ゼロ)の、おばけやしきでおばけを脅かすような怖い者なしのオレでもわかる!!",
+    "en": "Even I can tell—me, zero sixth sense, so fearless I scare the ghosts in haunted houses!!",
+    "audio": "audio/episode01/p006-01.mp3"
+   },
+   {
+    "kind": "narr",
+    "ja": "…い…いや!! そんなワケ…そう!しょせん噂",
+    "en": "N-no way!! That can't be… Right! It's just a rumor.",
+    "audio": "audio/episode01/p006-02.mp3"
+   },
+   {
+    "kind": "narr",
+    "ja": "そうだよ!! まさかな!! ただのイトコ、西京底帝",
+    "en": "That's right!! No way!! Just my cousin, Teitei Saikyo.",
+    "audio": "audio/episode01/p006-03.mp3"
+   },
+   {
+    "kind": "narr",
+    "ja": "お外行って来るぜ!!",
+    "en": "I'm heading out!!",
+    "audio": "audio/episode01/p006-04.mp3"
+   },
+   {
+    "kind": "narr",
+    "ja": "あ、うん。",
+    "en": "Oh, okay.",
+    "audio": "audio/episode01/p006-05.mp3"
+   },
+   {
+    "kind": "narr",
+    "ja": "あ、うん。",
+    "en": "Oh, okay.",
+    "audio": "audio/episode01/p006-06.mp3"
+   },
+   {
+    "kind": "narr",
+    "ja": "おかし代…",
+    "en": "Snack money…",
+    "audio": "audio/episode01/p006-07.mp3"
+   },
+   {
+    "kind": "narr",
+    "ja": "そういうことかよ。いや!! 利用できる!!",
+    "en": "So that's how it is. No wait!! I can use this!!",
+    "audio": "audio/episode01/p006-08.mp3"
+   },
+   {
+    "kind": "narr",
+    "ja": "あぁやるよ",
+    "en": "Yeah, here you go.",
+    "audio": "audio/episode01/p006-09.mp3"
+   },
+   {
+    "kind": "narr",
+    "ja": "ついでにおつかいしてこい。",
+    "en": "Run an errand for me while you're at it.",
+    "audio": "audio/episode01/p006-10.mp3"
+   }
+  ],
+  "7": [
+   {
+    "kind": "narr",
+    "ja": "これ買って来てくれ!!",
+    "en": "Go buy this for me!!",
+    "audio": "audio/episode01/p007-01.mp3"
+   },
+   {
+    "kind": "narr",
+    "ja": "うん",
+    "en": "Okay.",
+    "audio": "audio/episode01/p007-02.mp3"
+   },
+   {
+    "kind": "narr",
+    "ja": "はい!! お買い上げありがとうございます。",
+    "en": "Yes!! Thank you for your purchase.",
+    "audio": "audio/episode01/p007-03.mp3"
    }
   ]
  }
