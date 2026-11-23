@@ -125,3 +125,37 @@ a.char-cameo:hover{border-color:#18aaf5;background:#fff}
 a.rail-card:hover .rail-title{text-decoration:underline}
 .rail-card.is-static{cursor:default}
 @media(min-width:800px){.work-rail{scrollbar-width:thin}.work-rail::-webkit-scrollbar{display:block;height:6px}.work-rail::-webkit-scrollbar-thumb{background:#ccc;border-radius:3px}}
+
+/* ===== 文字起こし・読み上げ ===== */
+.tr-btn[aria-pressed=true]{background:#111;color:#fff;border-color:#111}
+.tr-panel{position:fixed;left:0;right:0;bottom:0;z-index:60;max-height:42vh;display:flex;flex-direction:column;background:rgba(255,255,255,.97);backdrop-filter:blur(8px);border-top:3px solid #ef3b35;box-shadow:0 -8px 24px rgba(0,0,0,.16);font-size:15px;color:#111;text-align:left}
+.tr-head{display:flex;align-items:center;gap:10px;flex-wrap:wrap;padding:10px 16px;border-bottom:1px solid #eee}
+.tr-page{font-size:15px;min-width:5.5em}
+.tr-lang{display:inline-flex;border:1px solid #ccc;border-radius:999px;padding:2px}
+.tr-lang button{border:0;background:none;border-radius:999px;padding:4px 12px;font-weight:700;font-size:12px;cursor:pointer;color:#555}
+.tr-lang button[aria-pressed=true]{background:#111;color:#fff}
+.tr-play{display:inline-flex;align-items:center;gap:6px;border:2px solid #111;background:#fff;border-radius:999px;padding:5px 14px;font-weight:800;font-size:13px;cursor:pointer}
+.tr-play:disabled{opacity:.35;cursor:default}
+.tr-play:not(:disabled):hover{background:#111;color:#fff}
+.tr-auto{display:inline-flex;align-items:center;gap:4px;font-size:12px;color:#555;cursor:pointer}
+.tr-close{margin-left:auto;border:0;background:none;font-size:24px;line-height:1;cursor:pointer;color:#555;padding:0 4px}
+.tr-lines{list-style:none;margin:0;padding:6px 16px;overflow:auto}
+.tr-lines li{display:grid;grid-template-columns:72px 1fr;gap:10px;padding:7px 6px;border-bottom:1px solid #f1f1f1;line-height:1.7}
+.tr-lines li.reading{background:#ffecec;box-shadow:inset 4px 0 0 #ef3b35}
+.tr-lines li.noread .tr-tx::after{content:"（読み上げなし）";margin-left:6px;font-size:11px;color:#999}
+.tr-lines li.tr-empty{display:block;color:#888;font-size:13px}
+.tr-tag{font-size:11px;font-weight:800;color:#fff;background:#888;border-radius:4px;padding:2px 6px;height:fit-content;text-align:center}
+.k-say .tr-tag{background:#111}.k-title .tr-tag{background:#ef3b35}
+.tr-credit{margin:0;padding:4px 16px 8px;font-size:11px;color:#888}
+body.tr-open .reader-footer{padding-bottom:44vh}
+.sum-box{margin-top:6px}
+.sum-tools{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin:4px 0 10px}
+.sum-listen{display:inline-flex;align-items:center;gap:6px;border:2px solid #111;background:#fff;border-radius:999px;padding:5px 14px;font-weight:800;font-size:13px;cursor:pointer}
+.sum-listen:hover,.sum-listen.on{background:#111;color:#fff}
+.sum-lang{display:inline-flex;border:1px solid #ccc;border-radius:999px;padding:2px}
+.sum-lang button{border:0;background:none;border-radius:999px;padding:4px 12px;font-weight:700;font-size:12px;cursor:pointer;color:#555}
+.sum-lang button[aria-pressed=true]{background:#111;color:#fff}
+.sum-title{margin:0;font-weight:900;letter-spacing:.06em}
+.sum-catch{margin:2px 0 6px;font-family:Georgia,serif;font-style:italic}
+.sum-credit{margin:6px 0 0;font-size:11px;color:#888}
+@media(max-width:600px){.tr-panel{max-height:48vh;font-size:14px}.tr-lines li{grid-template-columns:58px 1fr}.tr-head{gap:8px;padding:8px 12px}}

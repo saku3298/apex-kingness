@@ -69,6 +69,7 @@ for v in volumes:
 V_CSS = ver("css/style.css")
 V_VIEWER = ver("js/viewer.js")
 V_TOP = ver("js/top.js")
+V_LISTEN = ver("js/listen.js") if os.path.exists("js/listen.js") else ""
 
 
 def head(title, desc, url, typ, prefix="", theme=False):
@@ -164,10 +165,31 @@ def index_page():
 <nav class="jp-tabs" aria-label="作品メニュー"><button class="jp-tab active" data-tab="episodes">話</button><button class="jp-tab" data-tab="comics">コミックス</button><button class="jp-tab" data-tab="info">作品情報</button></nav>
 <section id="episodes" class="jp-panel active"><div class="episode-sort-header"><span>全{len(episodes)}話</span><div class="sort-switch episode-sort"><button type="button" class="sort-btn active" data-order="asc">1話から</button><span>|</span><button type="button" class="sort-btn" data-order="desc">最新話から</button></div></div>{RANGE_BAR}<div class="episode-list">{rows}</div></section>
 <section id="comics" class="jp-panel"><div class="comics-header"><strong>コミックス</strong><div class="comics-sort"><span class="active">新しい順</span></div></div><div class="volume-list">{tiles}</div></section>
-<section id="info" class="jp-panel info-panel"><div class="work-intro"><div class="work-catch">{e(TITLE)}</div><p class="work-summary">{e(work["summary"])}</p><div class="author-profile"><img src="{img("images/work/author-portrait")}" alt="{e(work["author_portrait_alt"])}"><div><span>作者</span><strong>{e(work["author"])}</strong></div></div></div>{characters_html()}{related_html}</section>
+<section id="info" class="jp-panel info-panel"><div class="work-intro"><div class="work-catch">{e(TITLE)}</div>{summary_block()}<div class="author-profile"><img src="{img("images/work/author-portrait")}" alt="{e(work["author_portrait_alt"])}"><div><span>作者</span><strong>{e(work["author"])}</strong></div></div></div>{characters_html()}{related_html}</section>
 </div><footer>{e(site["copyright"])}{footer_link}</footer>
 <script src="js/top.js?v={V_TOP}"></script></body></html>
 '''
+
+
+def summary_block():
+    ja = f'<p class="work-summary" lang="ja">{e(work["summary"])}</p>'
+    if not work.get("summary_en") and not work.get("summary_audio"):
+        return ja
+    tools = '<div class="sum-tools">'
+    if work.get("summary_audio"):
+        tools += (f'<button type="button" class="sum-listen" data-audio="{e(work["summary_audio"])}">'
+                  '<span class="sum-ic">▶</span><span class="sum-lb" data-ja="あらすじを聞く" data-en="Listen">あらすじを聞く</span></button>')
+    if work.get("summary_en"):
+        tools += '<span class="sum-lang"><button type="button" data-l="ja" aria-pressed="true">日本語</button><button type="button" data-l="en" aria-pressed="false">English</button></span>'
+    tools += "</div>"
+    en = ""
+    if work.get("summary_en"):
+        en = (f'<div class="sum-en" lang="en" hidden><p class="sum-title">{e(work.get("title_en", ""))}</p>'
+              f'<p class="sum-catch">{e(work.get("catch_copy_en", ""))}</p><p class="work-summary">{e(work["summary_en"])}</p></div>')
+    credit = f'<p class="sum-credit">音声：{e(work["voice_credit"])}</p>' if work.get("voice_credit") else ""
+    return f'<div class="sum-box">{tools}<div class="sum-ja">{ja}</div>{en}{credit}</div>'
+
+
 
 
 def pages_html(items, eager):
@@ -186,14 +208,24 @@ def reader_tail(total, footer_links):
             f'<script src="js/viewer.js?v={V_VIEWER}"></script></body></html>\n')
 
 
-def reader_top(back_href, back_text):
+def reader_top(back_href, back_text, extra=""):
     return (f'<body class="reader-page"><header class="reader-bar"><div class="reader-bar-inner">'
             f'<div class="reader-title"><a id="context-back" href="{back_href}">{back_text}</a></div>'
-            f'<div class="reader-controls"><button class="small-btn" id="top" type="button">先頭へ</button></div></div><div class="progress" aria-hidden="true"><div id="progress-fill"></div></div></header>\n')
+            f'<div class="reader-controls">{extra}<button class="small-btn" id="top" type="button">先頭へ</button></div></div><div class="progress" aria-hidden="true"><div id="progress-fill"></div></div></header>\n')
+
+
+def transcript_of(no):
+    """transcripts/episodeNN.json があれば読み込む（文字起こし・音声）"""
+    path = f"transcripts/episode{no:02d}.json"
+    if not os.path.exists(path):
+        return None
+    with open(path, encoding="utf-8") as f:
+        return json.load(f)
 
 
 def episode_page(ep):
     no, v = ep["no"], vol_of_ep.get(ep["no"])
+    tr = transcript_of(no)
     title = f'第{no}話「{ep["title"]}」 | {TITLE}'
     desc = f'オリジナル漫画『{TITLE}』第{no}話「{ep["title"]}」'
     items = [(img(f"images/episodes/episode{no:02d}-{p:03d}"), f"第{no}話 ページ{p}", f' data-i="{p - 1}"')
@@ -201,10 +233,17 @@ def episode_page(ep):
     vattr = f' data-volume-href="volume{v["no"]}.html" data-volume-label="第{v["no"]}巻"' if v else ""
     nav = f'<div class="episode-nav"><a class="small-btn" href="volume{v["no"]}.html">第{v["no"]}巻の目次</a></div>' if v else ""
     footer = '<a href="index.html">HOME</a>' + (f'　|　<a href="volume{v["no"]}.html">第{v["no"]}巻</a>' if v else "")
+    extra = ('<button class="small-btn tr-btn" id="listen-toggle" type="button" aria-pressed="false">'
+             '<span aria-hidden="true">🔊</span> 文字・音声</button>') if tr else ""
+    trjs = ""
+    if tr:
+        blob = json.dumps(tr, ensure_ascii=False).replace("</", "<\\/")
+        trjs = (f'<script type="application/json" id="transcript">{blob}</script>'
+                f'<script src="js/listen.js?v={V_LISTEN}" defer></script>')
     return (head(title, desc, f"{BASE}episode{no}.html", "article", theme=True)
-            + reader_top("index.html", "← 話一覧へ戻る")
+            + reader_top("index.html", "← 話一覧へ戻る", extra)
             + f'<main class="viewer" id="viewer"{vattr}>\n{pages_html(items, 2)}\n</main>\n{nav}'
-            + reader_tail(ep["pages"], footer))
+            + reader_tail(ep["pages"], footer).replace("</body>", trjs + "</body>"))
 
 
 def volume_page(v):

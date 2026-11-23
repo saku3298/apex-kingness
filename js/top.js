@@ -6,3 +6,11 @@ document.querySelectorAll('.episode-date[data-date]').forEach(el=>{
   const t=new Date(el.dataset.date+'T00:00:00+09:00').getTime();
   if(Date.now()-t<30*24*3600*1000 && Date.now()>=t-24*3600*1000){const s=document.createElement('span');s.className='new-badge';s.textContent='新着';el.appendChild(s);}
 });
+/* あらすじ：読み上げと英語切り替え */
+(()=>{const box=document.querySelector('.sum-box');if(!box)return;let au=null;const btn=box.querySelector('.sum-listen'),ja=box.querySelector('.sum-ja'),en=box.querySelector('.sum-en'),cr=box.querySelector('.sum-credit');let lang='ja';const synth=window.speechSynthesis;
+function reset(){if(au){au.pause();au=null}if(synth)synth.cancel();if(btn){btn.classList.remove('on');btn.querySelector('.sum-ic').textContent='▶';const lb=btn.querySelector('.sum-lb');lb.textContent=lb.dataset[lang]}}
+function enVoice(){const v=(synth?synth.getVoices():[]).filter(x=>/^en/i.test(x.lang));const fem=/Samantha|Ava|Allison|Susan|Zira|Aria|Jenny|Karen|Moira|Tessa|Serena|Victoria|Joanna|Emma|Michelle|Libby|Sonia|Female|Google US English/i;const q=x=>(/Natural|Neural/i.test(x.name)?4:/Premium|Enhanced/i.test(x.name)?3:/Online|Google/i.test(x.name)?2:0)+(fem.test(x.name)&&!/Male/.test(x.name)?5:0);return v.sort((a,b)=>q(b)-q(a))[0]||null}
+if(btn)btn.addEventListener('click',()=>{if(btn.classList.contains('on')){reset();return}btn.classList.add('on');btn.querySelector('.sum-ic').textContent='■';btn.querySelector('.sum-lb').textContent=lang==='ja'?'止める':'Stop';
+if(lang==='ja'){au=new Audio(btn.dataset.audio);au.onended=reset;au.onerror=reset;const p=au.play();if(p&&p.catch)p.catch(reset)}
+else if(synth){const u=new SpeechSynthesisUtterance(en.querySelector('.work-summary').textContent);u.lang='en-US';const v=enVoice();if(v)u.voice=v;u.rate=.95;u.onend=reset;u.onerror=reset;synth.speak(u)}else reset()});
+box.querySelectorAll('.sum-lang button').forEach(b=>b.addEventListener('click',()=>{lang=b.dataset.l;box.querySelectorAll('.sum-lang button').forEach(x=>x.setAttribute('aria-pressed',x===b));ja.hidden=lang!=='ja';if(en)en.hidden=lang!=='en';if(cr)cr.hidden=lang!=='ja';reset()}));})();

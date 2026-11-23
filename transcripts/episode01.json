@@ -1,0 +1,77 @@
+{
+ "episode": 1,
+ "voice_credit": "VOICEVOX:冥鳴ひまり",
+ "pages": {
+  "1": [
+   {
+    "kind": "title",
+    "ja": "第1話 弱者こそ強者",
+    "en": "Episode 1: The Weak Are the Strong",
+    "audio": "audio/episode01/p001-01.mp3"
+   },
+   {
+    "kind": "narr",
+    "ja": "そうだ。思い出した。人類はまだ誕生していないんだ。",
+    "en": "That's right. I remember now. Humanity hasn't been born yet.",
+    "audio": "audio/episode01/p001-02.mp3"
+   },
+   {
+    "kind": "narr",
+    "ja": "地球では……白亜紀",
+    "en": "On Earth… the Cretaceous period.",
+    "audio": "audio/episode01/p001-03.mp3"
+   },
+   {
+    "kind": "narr",
+    "ja": "人間とは架空の生物だ。あのいつもの日常は、もしも人類が誕生したら……。",
+    "en": "Humans are imaginary creatures. All that everyday life… is just a \"what if humanity were born.\"",
+    "audio": "audio/episode01/p001-04.mp3"
+   },
+   {
+    "kind": "narr",
+    "ja": "誕生するためには、この夢……いや現実で他の誕生候補を倒し、優勝しなければならない……。だが相手も、もしも××種が地球人ならを歩んでいる。",
+    "en": "To be born, I have to defeat every other candidate for birth in this dream—no, this reality—and win… But my rivals, too, are living out a \"what if the ×× species were the people of Earth.\"",
+    "en_say": "To be born, I have to defeat every other candidate for birth in this dream, no, this reality, and win. But my rivals, too, are living out a what if: what if such-and-such species were the people of Earth.",
+    "audio": "audio/episode01/p001-05.mp3"
+   },
+   {
+    "kind": "narr",
+    "ja": "みな、地球に生まれるために……生き残るために……なら",
+    "en": "All of them, to be born on Earth… to survive… then—",
+    "audio": "audio/episode01/p001-06.mp3"
+   },
+   {
+    "kind": "say",
+    "ja": "勝てるものならやってみろ……",
+    "en": "Beat me if you can…",
+    "audio": "audio/episode01/p001-07.mp3"
+   },
+   {
+    "kind": "say",
+    "ja": "この人類様に!!",
+    "en": "…me, the great Humanity!!",
+    "audio": "audio/episode01/p001-08.mp3"
+   }
+  ],
+  "2": [
+   {
+    "kind": "title",
+    "ja": "アペックスキングネス",
+    "en": "APEX KINGNESS",
+    "noread": true
+   },
+   {
+    "kind": "narr",
+    "ja": "利用できるものは",
+    "en": "Whatever can be used—",
+    "audio": "audio/episode01/p002-02.mp3"
+   },
+   {
+    "kind": "narr",
+    "ja": "利用する",
+    "en": "I will use.",
+    "audio": "audio/episode01/p002-03.mp3"
+   }
+  ]
+ }
+}
