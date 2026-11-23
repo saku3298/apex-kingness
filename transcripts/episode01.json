@@ -55,7 +55,7 @@
   ],
   "2": [
    {
-    "kind": "title",
+    "kind": "note",
     "ja": "アペックスキングネス",
     "en": "APEX KINGNESS",
     "noread": true
@@ -71,6 +71,62 @@
     "ja": "利用する",
     "en": "I will use.",
     "audio": "audio/episode01/p002-03.mp3"
+   }
+  ],
+  "3": [
+   {
+    "kind": "narr",
+    "ja": "オレは最強でカッコイイ男!!",
+    "en": "I'm the strongest, coolest guy around!!",
+    "audio": "audio/episode01/p003-01.mp3"
+   },
+   {
+    "kind": "narr",
+    "ja": "と自分では思っているし、実際、大学目指してる最強に万能、全教科オール5イケメン",
+    "en": "That's what I think of myself—and in fact, I'm an all-round genius aiming for university, a handsome guy with straight A's in every subject.",
+    "audio": "audio/episode01/p003-02.mp3"
+   },
+   {
+    "kind": "narr",
+    "ja": "西京勝",
+    "en": "Katsu Saikyo",
+    "audio": "audio/episode01/p003-03.mp3"
+   },
+   {
+    "kind": "narr",
+    "ja": "スポーツ完璧。人間性完璧。",
+    "en": "Perfect at sports. Perfect as a person.",
+    "audio": "audio/episode01/p003-04.mp3"
+   },
+   {
+    "kind": "narr",
+    "ja": "学力完璧。",
+    "en": "Perfect in grades.",
+    "audio": "audio/episode01/p003-05.mp3"
+   },
+   {
+    "kind": "narr",
+    "ja": "生活完璧。高校は推薦で入った。",
+    "en": "Perfect in daily life. Got into high school on a recommendation.",
+    "audio": "audio/episode01/p003-06.mp3"
+   },
+   {
+    "kind": "narr",
+    "ja": "家族を亡くしたイトコが来る。元気にしてやりてぇし、話せる話題を",
+    "en": "My cousin who lost their family is coming. I want to cheer them up, so for things we can talk about—",
+    "audio": "audio/episode01/p003-07.mp3"
+   },
+   {
+    "kind": "narr",
+    "ja": "といっても、誰とも話せるように、流行りとかは調べてる。流行に流されるタイプではないが、知っておくにこしたことはない",
+    "en": "—well, I always look up what's trending so I can talk with anyone. I'm not the type to follow trends, but it never hurts to know.",
+    "audio": "audio/episode01/p003-08.mp3"
+   },
+   {
+    "kind": "narr",
+    "ja": "何だ……これ。",
+    "en": "What… is this?",
+    "audio": "audio/episode01/p003-09.mp3"
    }
   ]
  }
