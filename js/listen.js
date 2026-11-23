@@ -17,6 +17,7 @@
     '<span class="tr-lang"><button type="button" data-l="ja">日本語</button><button type="button" data-l="en">EN</button></span>' +
     '<button type="button" class="tr-play"><span class="tr-ic">▶</span><span class="tr-pl">聞く</span></button>' +
     '<label class="tr-auto"><input type="checkbox"> <span>自動めくり</span></label>' +
+    '<button type="button" class="tr-txt" aria-pressed="true">文字</button>' +
     '<button type="button" class="tr-close" aria-label="閉じる">×</button></div>' +
     '<p class="tr-sub" aria-live="polite"></p><ol class="tr-lines"></ol><p class="tr-credit"></p>';
   document.body.appendChild(panel);
@@ -44,9 +45,9 @@
     }
     ls.forEach((l, i) => {
       const li = document.createElement('li'); li.dataset.i = i; li.className = 'k-' + l.kind + (l.noread ? ' noread' : '');
-      const tag = document.createElement('span'); tag.className = 'tr-tag'; tag.textContent = LBL[lang][l.kind] || '';
-      const tx = document.createElement('span'); tx.className = 'tr-tx'; tx.textContent = l[lang] || l.ja;
-      li.append(tag, tx); ol.appendChild(li);
+      const tx = document.createElement('span'); tx.className = 'tr-tx'; const t = l[lang] || l.ja;
+      tx.textContent = l.kind === 'say' && lang === 'ja' ? '「' + t + '」' : t;
+      li.append(tx); ol.appendChild(li);
     });
     $('.tr-play').disabled = !ls.some(l => !l.noread);
     $('.tr-credit').textContent = lang === 'ja' ? '音声：' + data.voice_credit : 'Voice: your device';
@@ -101,7 +102,7 @@
     render();
   });
   function fit() {
-    const side = innerWidth > innerHeight; document.documentElement.style.setProperty('--trh', panel.hidden || side ? '0px' : panel.offsetHeight + 'px');
+    const side = innerWidth > innerHeight && showText; document.documentElement.style.setProperty('--trh', panel.hidden || side ? '0px' : panel.offsetHeight + 'px');
     window.dispatchEvent(new Event('resize'));
   }
   if (window.ResizeObserver) new ResizeObserver(() => { if (!panel.hidden) fit(); }).observe(panel);
@@ -112,10 +113,15 @@
   });
   $('.tr-close').onclick = () => btn.click();
   $('.tr-play').onclick = () => (playing ? stop() : play());
-  panel.querySelectorAll('.tr-lang button').forEach(b => b.onclick = () => { lang = b.dataset.l; store.set('saku:tr-lang', lang); stop(); });
+  panel.querySelectorAll('.tr-lang button').forEach(b => b.onclick = () => { lang = b.dataset.l; store.set('saku:tr-lang', lang); stop(); applyText(); });
+  let showText = store.get('saku:tr-text') !== '0';
+  const txtBtn = $('.tr-txt');
+  function applyText() { panel.classList.toggle('no-text', !showText); document.body.classList.toggle('tr-notext', !showText); txtBtn.setAttribute('aria-pressed', showText); txtBtn.textContent = lang === 'ja' ? '文字' : 'Text'; fit(); }
+  txtBtn.onclick = () => { showText = !showText; store.set('saku:tr-text', showText ? '1' : '0'); applyText(); };
   autoBox.onchange = () => { auto = autoBox.checked; store.set('saku:tr-auto', auto ? '1' : '0'); };
   const c = document.getElementById('counter');
   if (c) { const m = c.textContent.match(/^(\d+)(?:-(\d+))?/); if (m) pages = [Number(m[1]) - 1, Number(m[2] || m[1]) - 1]; }
+  applyText();
   if (store.get('saku:tr-open') === '1') btn.click();
   render();
 })();

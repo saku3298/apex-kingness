@@ -186,3 +186,29 @@ body.tr-open .reader-slide.single .manga-page img{width:auto;max-width:100%;max-
   body.tr-open .tr-lines{padding:4px 8px;font-size:13.5px}
   body.tr-open .tr-credit{font-size:10px}
 }
+
+/* 行の見せ方：ラベルなし。語りは灰色の線、セリフは「」、題は太字 */
+.tr-lines li{display:block!important;padding:7px 10px!important;border-left:3px solid transparent}
+.tr-lines li.k-narr{color:#444;border-left-color:#d6d6d6}
+.tr-lines li.k-say{font-weight:700;color:#111}
+.tr-lines li.k-title{font-weight:900;color:#ef3b35}
+.tr-lines li.reading{border-left-color:#ef3b35}
+.tr-txt{border:1px solid #ccc;background:#fff;border-radius:999px;padding:4px 12px;font-weight:700;font-size:12px;cursor:pointer;color:#555}
+.tr-txt[aria-pressed=true]{background:#111;color:#fff;border-color:#111}
+/* 文字を消したとき：操作だけの小さなバー（右下） */
+.tr-panel.no-text{left:0!important;top:auto!important;right:0!important;bottom:0!important;width:auto!important;max-height:none;border:0!important;border-top:1px solid #333!important;background:#141416;box-shadow:none}
+.tr-panel.no-text .tr-head{border:0;padding:6px 10px;flex-wrap:nowrap;justify-content:center}
+.tr-panel.no-text .tr-close{margin-left:12px}
+.tr-panel.no-text .tr-page,.tr-panel.no-text .tr-lines,.tr-panel.no-text .tr-credit,.tr-panel.no-text .tr-sub{display:none}
+.tr-panel.no-text .tr-lang{border-color:#666}.tr-panel.no-text .tr-lang button{color:#ccc}.tr-panel.no-text .tr-lang button[aria-pressed=true]{background:#fff;color:#111}
+.tr-panel.no-text .tr-play{background:none;color:#fff;border-color:#fff}
+.tr-panel.no-text .tr-auto,.tr-panel.no-text .tr-close{color:#ddd}
+.tr-panel.no-text .tr-txt{background:none;color:#ddd;border-color:#777}
+body.tr-notext .reader-slide.single .manga-page img{max-height:none;width:100%}
+@media(orientation:landscape){body.tr-open.tr-notext .viewer{width:100%;margin:0 auto;height:calc(100dvh - 42px - var(--trh,0px))!important;min-height:0}
+ body.tr-open.tr-notext .reader-slide.spread .manga-page,body.tr-open.tr-notext .reader-slide.spread .manga-page img,body.tr-open.tr-notext .reader-slide.spread .manga-page.blank-page{max-width:50vw}
+ body.tr-open.tr-notext .page-nav,body.tr-open.tr-notext .counter,body.tr-open.tr-notext .reader-footer{margin-right:0}}
+body.tr-notext .reader-footer{padding-bottom:70px}
+
+.tr-head>*{white-space:nowrap;flex-shrink:0}
+@media(max-width:520px){.tr-head{gap:6px!important;padding:6px 8px!important}.tr-page{display:none}.tr-lang button{padding:3px 8px!important}.tr-play{padding:4px 10px!important}.tr-auto{font-size:11px}.tr-txt{padding:3px 9px}.tr-close{margin-left:auto}}
