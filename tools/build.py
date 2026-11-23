@@ -58,8 +58,15 @@ def count_pages(no):
     sys.exit(f"エラー: images/episodes/episode{no:02d}-001.webp などがありません")
 
 
+def count_protected(no):
+    n = len(glob.glob(f"protected/episode{no:02d}-*.akg"))
+    if not n:
+        sys.exit(f"エラー: protected/episode{no:02d}-001.akg などがありません（tools/encrypt_episode.py で作ります）")
+    return n
+
+
 for ep in episodes:
-    ep["pages"] = count_pages(ep["no"])
+    ep["pages"] = count_protected(ep["no"]) if ep.get("protected") else count_pages(ep["no"])
 ep_by_no = {ep["no"]: ep for ep in episodes}
 vol_of_ep = {}
 for v in volumes:
@@ -69,6 +76,7 @@ for v in volumes:
 V_CSS = ver("css/style.css")
 V_VIEWER = ver("js/viewer.js")
 V_TOP = ver("js/top.js")
+V_PROT = ver("js/protected-reader.js") if os.path.exists("js/protected-reader.js") else ""
 V_LISTEN = ver("js/listen.js") if os.path.exists("js/listen.js") else ""
 
 
@@ -137,7 +145,7 @@ def index_page():
     rows = "".join(
         f'<a class="episode-row" href="episode{ep["no"]}.html" data-ep="{ep["no"]}">'
         f'<img class="episode-thumb" src="{img(f"images/thumbs/episode{ep["no"]:02d}")}" alt="第{ep["no"]}話 {e(ep["title"])}">'
-        f'<div class="episode-meta"><div class="episode-title">第{ep["no"]}話 <span>{e(ep["title"])}</span></div>{date_html(ep)}</div>'
+        f'<div class="episode-meta"><div class="episode-title">第{ep["no"]}話 <span>{e(ep["title"])}</span></div>{date_html(ep)}{('<span class="protected-badge">🔒 パスワード</span>' if ep.get("protected") else "")}</div>'
         f'<div class="episode-read">読む</div></a>' for ep in episodes)
     tiles = "".join(
         f'<a class="volume-tile" href="volume{v["no"]}.html"><img src="{vol_cover(v)}" alt="{e(TITLE)} 第{v["no"]}巻表紙">'
@@ -223,13 +231,22 @@ def transcript_of(no):
         return json.load(f)
 
 
+LOCK = ('<section class="protected-lock" id="protected-lock" aria-labelledby="protected-lock-title"><div class="protected-lock-card">'
+        '<div class="protected-lock-mark" aria-hidden="true">🔒</div><h1 id="protected-lock-title">この話はパスワードが必要です</h1>'
+        '<p>この話は限定公開です。<br>パスワードを入力すると漫画を読めます。</p>'
+        '<form class="protected-lock-form" id="protected-lock-form"><label class="sr-only" for="protected-password">パスワード</label>'
+        '<input id="protected-password" name="password" type="password" autocomplete="current-password" placeholder="パスワード" required>'
+        '<button id="protected-submit" type="submit">読む</button><p class="protected-lock-error" id="protected-error" role="alert" aria-live="polite"></p></form></div></section>')
+
+
 def episode_page(ep):
     no, v = ep["no"], vol_of_ep.get(ep["no"])
     tr = transcript_of(no)
     title = f'第{no}話「{ep["title"]}」 | {TITLE}'
     desc = f'オリジナル漫画『{TITLE}』第{no}話「{ep["title"]}」'
+    prot = bool(ep.get("protected"))
     items = [(img(f"images/episodes/episode{no:02d}-{p:03d}"), f"第{no}話 ページ{p}", f' data-i="{p - 1}"')
-             for p in range(1, ep["pages"] + 1)]
+             for p in range(1, ep["pages"] + 1)] if not prot else []
     vattr = f' data-volume-href="volume{v["no"]}.html" data-volume-label="第{v["no"]}巻"' if v else ""
     nav = f'<div class="episode-nav"><a class="small-btn" href="volume{v["no"]}.html">第{v["no"]}巻の目次</a></div>' if v else ""
     footer = '<a href="index.html">HOME</a>' + (f'　|　<a href="volume{v["no"]}.html">第{v["no"]}巻</a>' if v else "")
@@ -240,10 +257,18 @@ def episode_page(ep):
         blob = json.dumps(tr, ensure_ascii=False).replace("</", "<\\/")
         trjs = (f'<script type="application/json" id="transcript">{blob}</script>'
                 f'<script src="js/listen.js?v={V_LISTEN}" defer></script>')
-    return (head(title, desc, f"{BASE}episode{no}.html", "article", theme=True)
+    html = (head(title, desc, f"{BASE}episode{no}.html", "article", theme=True)
             + reader_top("index.html", "← 話一覧へ戻る", extra)
-            + f'<main class="viewer" id="viewer"{vattr}>\n{pages_html(items, 2)}\n</main>\n{nav}'
-            + reader_tail(ep["pages"], footer).replace("</body>", trjs + "</body>"))
+            + f'<main class="viewer" id="viewer"{vattr}>\n{pages_html(items, 2) if not prot else prot_pages(no, ep["pages"])}\n</main>\n{nav}'
+            + reader_tail(ep["pages"], footer).replace("</body>", trjs + (f'<script src="js/protected-reader.js?v={V_PROT}"></script>' if prot else "") + "</body>"))
+    if prot:
+        html = html.replace('<body class="reader-page">', '<body class="reader-page protected-locked">' + LOCK, 1)
+    return html
+
+
+def prot_pages(no, n):
+    return "\n".join(f'    <div class="manga-page" data-i="{p - 1}"><img data-protected-src="protected/episode{no:02d}-{p:03d}.akg" alt="第{no}話 ページ{p}"></div>'
+                     for p in range(1, n + 1))
 
 
 def volume_page(v):
