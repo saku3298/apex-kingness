@@ -372,6 +372,138 @@
     "en": "There's an assassin!!",
     "audio": "audio/episode01/p011-02.mp3"
    }
+  ],
+  "13": [
+   {
+    "kind": "narr",
+    "ja": "噂なんだが、アイツに関わるヤツは皆、死ぬんだよ",
+    "en": "Here's the rumor: everyone who gets involved with that kid dies.",
+    "audio": "audio/episode01/p013-01.mp3"
+   },
+   {
+    "kind": "narr",
+    "ja": "夜にあの子と手を繋いで寝た者が死ぬ",
+    "en": "Whoever sleeps holding that kid's hand at night… dies.",
+    "audio": "audio/episode01/p013-02.mp3"
+   },
+   {
+    "kind": "narr",
+    "ja": "悪夢の子",
+    "en": "The Nightmare Child.",
+    "audio": "audio/episode01/p013-03.mp3"
+   },
+   {
+    "kind": "narr",
+    "ja": "ていてい…",
+    "en": "Teitei…",
+    "audio": "audio/episode01/p013-04.mp3"
+   },
+   {
+    "kind": "narr",
+    "ja": "夢…か…",
+    "en": "A dream…?",
+    "audio": "audio/episode01/p013-05.mp3"
+   },
+   {
+    "kind": "narr",
+    "ja": "逃げよう勝さん！ 死んだら死ぬよ!!",
+    "en": "Let's run, Katsu! If you die, you die!!",
+    "audio": "audio/episode01/p013-06.mp3"
+   },
+   {
+    "kind": "narr",
+    "ja": "に…!? 逃げるったって、人サイズのカマキリから逃げれる訳ねーだろ!! ただでさえ、自分よりも大きいの殺すバケモノなのに",
+    "en": "R-run!? How are we supposed to outrun a human-sized mantis!! It's a monster that kills things bigger than itself as it is!",
+    "audio": "audio/episode01/p013-07.mp3"
+   }
+  ],
+  "14": [
+   {
+    "kind": "narr",
+    "ja": "釣って",
+    "en": "Reel it in.",
+    "audio": "audio/episode01/p014-01.mp3"
+   },
+   {
+    "kind": "narr",
+    "ja": "『メタスラちゃん』",
+    "en": "\"Metasura-chan.\"",
+    "audio": "audio/episode01/p014-02.mp3"
+   }
+  ],
+  "15": [
+   {
+    "kind": "narr",
+    "ja": "!!? そうか!! 夢だから何でもアリ",
+    "en": "!!? I get it!! It's a dream, so anything goes!",
+    "audio": "audio/episode01/p015-01.mp3"
+   },
+   {
+    "kind": "narr",
+    "ja": "そんなワケないだろ",
+    "en": "No way, that's not it.",
+    "audio": "audio/episode01/p015-02.mp3"
+   },
+   {
+    "kind": "narr",
+    "ja": "ここはメタスラちゃんに任せて、とんずらするよ",
+    "en": "Let's leave this to Metasura-chan and make a run for it.",
+    "audio": "audio/episode01/p015-03.mp3"
+   },
+   {
+    "kind": "narr",
+    "ja": "ここまで来れば",
+    "en": "We should be safe this far…",
+    "audio": "audio/episode01/p015-04.mp3"
+   },
+   {
+    "kind": "narr",
+    "ja": "なんだ。でも夢か。",
+    "en": "Phew. But it's just a dream, right?",
+    "audio": "audio/episode01/p015-05.mp3"
+   },
+   {
+    "kind": "narr",
+    "ja": "違うよ。夢が現実。現実が夢だよ。",
+    "en": "No. The dream is reality. Reality is the dream.",
+    "audio": "audio/episode01/p015-06.mp3"
+   },
+   {
+    "kind": "narr",
+    "ja": "人類はまだ生まれてなくて、私達はもしも人類が生まれたら、というような存在。相手もそう。",
+    "en": "Humanity hasn't been born yet. We're beings of \"what if humanity were born.\" So are they.",
+    "audio": "audio/episode01/p015-07.mp3"
+   },
+   {
+    "kind": "narr",
+    "ja": "だから",
+    "en": "So…",
+    "audio": "audio/episode01/p015-08.mp3"
+   },
+   {
+    "kind": "narr",
+    "ja": "お互い、未来の己の類のために争ってる。地球人ってことだ…相手も…だから私はこう呼ぶ…",
+    "en": "We're each fighting for the future of our own kind. They're 'people of Earth' too… so I call them…",
+    "audio": "audio/episode01/p015-09.mp3"
+   },
+   {
+    "kind": "narr",
+    "ja": "亜人",
+    "en": "Demi-humans.",
+    "audio": "audio/episode01/p015-10.mp3"
+   },
+   {
+    "kind": "narr",
+    "ja": "人のような、人ではない何か…!!だと!?",
+    "en": "Something like a person, but not a person…!! Are you serious!?",
+    "audio": "audio/episode01/p015-11.mp3"
+   },
+   {
+    "kind": "narr",
+    "ja": "だからこの悪夢で殺し合いになり、最後の種が現実を現実にする…ややこしいわ!",
+    "en": "So in this nightmare we kill each other, and the last species standing makes its reality real… That's way too complicated!",
+    "audio": "audio/episode01/p015-12.mp3"
+   }
   ]
  }
 }
