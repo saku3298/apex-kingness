@@ -151,7 +151,7 @@ body.tr-open .reader-footer{padding-bottom:calc(var(--trh,0px) + 12px)}
 .tr-lines{max-height:20vh}
 .tr-credit{padding:2px 12px 6px}
 body.tr-open .reader-slide.single .manga-page img{width:auto;max-width:100%;max-height:calc(100svh - 54px - var(--trh,0px))}
-@media(orientation:landscape){body.tr-open .viewer{min-height:0;height:calc(100svh - 50px - var(--trh,0px))!important}}
+
 .sum-box{margin-top:6px}
 .sum-tools{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin:4px 0 10px}
 .sum-listen{display:inline-flex;align-items:center;gap:6px;border:2px solid #111;background:#fff;border-radius:999px;padding:5px 14px;font-weight:800;font-size:13px;cursor:pointer}
@@ -164,15 +164,25 @@ body.tr-open .reader-slide.single .manga-page img{width:auto;max-width:100%;max-
 .sum-credit{margin:6px 0 0;font-size:11px;color:#888}
 @media(max-width:600px){.tr-panel{font-size:14px}.tr-lines li{grid-template-columns:54px 1fr;padding:5px 4px}.tr-page{min-width:0;font-size:13px}.tr-play{padding:4px 10px}.tr-lang button{padding:3px 9px}}
 
-/* スマホ横画面（見開き）：文字の一覧は隠して、読んでいる行だけ字幕で出す */
+
+/* 横画面：文字の欄は右側の列にして、見開きは高さいっぱいのまま */
 .tr-sub{display:none}
+@media(orientation:landscape){
+  body.tr-open{--side:min(34vw,380px)}
+  body.tr-open .tr-panel{top:42px;left:auto;right:0;bottom:0;width:var(--side);max-height:none;border-top:0;border-left:3px solid #ef3b35;box-shadow:-6px 0 20px rgba(0,0,0,.25)}
+  body.tr-open .tr-head{flex-wrap:wrap}
+  body.tr-open .tr-lines{max-height:none;flex:1}
+  body.tr-open .viewer{width:calc(100vw - var(--side));margin:0;height:calc(100dvh - 42px)!important}
+  body.tr-open .reader-slide.spread .manga-page,body.tr-open .reader-slide.spread .manga-page img{max-width:calc((100vw - var(--side))/2)}
+  body.tr-open .reader-slide.spread .manga-page.blank-page{max-width:calc((100vw - var(--side))/2)}
+  body.tr-open .page-nav,body.tr-open .counter,body.tr-open .reader-footer{margin-right:var(--side)}
+  body.tr-open .reader-footer{padding-bottom:12px}
+}
 @media(orientation:landscape) and (max-height:520px){
-  .tr-panel{max-height:none;background:rgba(17,17,17,.82);color:#fff;border-top:0;box-shadow:none}
-  .tr-head{padding:4px 10px;border-bottom:0}
-  .tr-page,.tr-credit,.tr-lines{display:none}
-  .tr-lang{border-color:#666}.tr-lang button{color:#ccc}.tr-lang button[aria-pressed=true]{background:#fff;color:#111}
-  .tr-play{background:none;color:#fff;border-color:#fff}
-  .tr-auto,.tr-close{color:#ccc}
-  .tr-sub{display:block;margin:0;padding:0 14px 6px;font-size:14px;line-height:1.5;min-height:0}
-  .tr-sub:empty{display:none}
+  body.tr-open .tr-head{padding:4px 8px;gap:6px}
+  body.tr-open .tr-page{display:none}
+  body.tr-open .tr-lines li{grid-template-columns:1fr;gap:2px;padding:5px 4px}
+  body.tr-open .tr-tag{justify-self:start;font-size:10px;padding:1px 6px}
+  body.tr-open .tr-lines{padding:4px 8px;font-size:13.5px}
+  body.tr-open .tr-credit{font-size:10px}
 }

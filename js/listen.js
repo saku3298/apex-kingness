@@ -101,7 +101,7 @@
     render();
   });
   function fit() {
-    document.documentElement.style.setProperty('--trh', panel.hidden ? '0px' : panel.offsetHeight + 'px');
+    const side = innerWidth > innerHeight; document.documentElement.style.setProperty('--trh', panel.hidden || side ? '0px' : panel.offsetHeight + 'px');
     window.dispatchEvent(new Event('resize'));
   }
   if (window.ResizeObserver) new ResizeObserver(() => { if (!panel.hidden) fit(); }).observe(panel);
