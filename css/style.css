@@ -142,7 +142,7 @@ a.rail-card:hover .rail-title{text-decoration:underline}
 .tr-lines{list-style:none;margin:0;padding:6px 16px;overflow:auto}
 .tr-lines li{display:grid;grid-template-columns:72px 1fr;gap:10px;padding:7px 6px;border-bottom:1px solid #f1f1f1;line-height:1.7}
 .tr-lines li.reading{background:#ffecec;box-shadow:inset 4px 0 0 #ef3b35}
-.tr-lines li.noread .tr-tx::after{content:"（読み上げなし）";margin-left:6px;font-size:11px;color:#999}
+
 .tr-lines li.tr-empty{display:block;color:#888;font-size:13px}
 .tr-tag{font-size:11px;font-weight:800;color:#fff;background:#888;border-radius:4px;padding:2px 6px;height:fit-content;text-align:center}
 .k-say .tr-tag{background:#111}.k-title .tr-tag{background:#ef3b35}
