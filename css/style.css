@@ -150,8 +150,8 @@ a.rail-card:hover .rail-title{text-decoration:underline}
 body.tr-open .reader-footer{padding-bottom:calc(var(--trh,0px) + 12px)}
 .tr-lines{max-height:20vh}
 .tr-credit{padding:2px 12px 6px}
-body.tr-open .reader-slide.single .manga-page img{width:auto;max-width:100%;max-height:calc(100dvh - 46px - var(--trh,0px))}
-@media(orientation:landscape){body.tr-open .viewer{height:calc(100dvh - 42px - var(--trh,0px))!important}}
+body.tr-open .reader-slide.single .manga-page img{width:auto;max-width:100%;max-height:calc(100svh - 54px - var(--trh,0px))}
+@media(orientation:landscape){body.tr-open .viewer{min-height:0;height:calc(100svh - 50px - var(--trh,0px))!important}}
 .sum-box{margin-top:6px}
 .sum-tools{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin:4px 0 10px}
 .sum-listen{display:inline-flex;align-items:center;gap:6px;border:2px solid #111;background:#fff;border-radius:999px;padding:5px 14px;font-weight:800;font-size:13px;cursor:pointer}
