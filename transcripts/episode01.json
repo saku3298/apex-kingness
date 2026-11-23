@@ -262,6 +262,116 @@
     "en": "Yes!! Thank you for your purchase.",
     "audio": "audio/episode01/p007-03.mp3"
    }
+  ],
+  "8": [
+   {
+    "kind": "narr",
+    "ja": "…ここなら",
+    "en": "…Here, then.",
+    "audio": "audio/episode01/p008-01.mp3"
+   },
+   {
+    "kind": "narr",
+    "ja": "今日はありがとよ。電気消すぞ",
+    "en": "Thanks for today. I'm turning off the light.",
+    "audio": "audio/episode01/p008-02.mp3"
+   },
+   {
+    "kind": "narr",
+    "ja": "一人で",
+    "en": "Alone…",
+    "audio": "audio/episode01/p008-03.mp3"
+   },
+   {
+    "kind": "narr",
+    "ja": "寝る",
+    "en": "I'll sleep.",
+    "audio": "audio/episode01/p008-04.mp3"
+   },
+   {
+    "kind": "narr",
+    "ja": "なんか言ったか？強…？",
+    "en": "Did you say something? Tsuyoshi…?",
+    "audio": "audio/episode01/p008-05.mp3"
+   }
+  ],
+  "9": [
+   {
+    "kind": "narr",
+    "ja": "悪夢でも見てるのか？",
+    "en": "Is the kid having a nightmare?",
+    "audio": "audio/episode01/p009-01.mp3"
+   },
+   {
+    "kind": "narr",
+    "ja": "今、何か…何か…布団の毛のようなものに…起こされかけた!?",
+    "en": "Just now, something… something… like the fuzz of a futon… almost woke me up!?",
+    "audio": "audio/episode01/p009-02.mp3"
+   },
+   {
+    "kind": "narr",
+    "ja": "あれ？ どっちが現実だ？",
+    "en": "Huh? Which one is reality?",
+    "audio": "audio/episode01/p009-03.mp3"
+   },
+   {
+    "kind": "narr",
+    "ja": "気のせいか…",
+    "en": "Must be my imagination…",
+    "audio": "audio/episode01/p009-04.mp3"
+   }
+  ],
+  "10": [
+   {
+    "kind": "narr",
+    "ja": "強がいない!? しかもパジャマじゃない!?",
+    "en": "Tsuyoshi's gone!? And he's not even in his pajamas!?",
+    "audio": "audio/episode01/p010-01.mp3"
+   },
+   {
+    "kind": "narr",
+    "ja": "いったい何が…暗!!",
+    "en": "What on earth… It's so dark!!",
+    "audio": "audio/episode01/p010-02.mp3"
+   },
+   {
+    "kind": "narr",
+    "ja": "ていてい!! 起きたか!? 大変だ!!",
+    "en": "Teitei!! You awake!? This is bad!!",
+    "audio": "audio/episode01/p010-03.mp3"
+   },
+   {
+    "kind": "narr",
+    "ja": "まままさか、オレの弟ッ、あの西京強が、夜に家出した!!!??",
+    "en": "N-n-no way… my little brother, THE Tsuyoshi Saikyo, ran away from home at night!!!??",
+    "audio": "audio/episode01/p010-04.mp3"
+   },
+   {
+    "kind": "narr",
+    "ja": "こうしちゃいられん!! 外に!!",
+    "en": "I can't just sit here!! Outside!!",
+    "audio": "audio/episode01/p010-05.mp3"
+   },
+   {
+    "kind": "narr",
+    "ja": "…!?マズい!!!",
+    "en": "…!? This is bad!!!",
+    "audio": "audio/episode01/p010-06.mp3"
+   }
+  ],
+  "11": [
+   {
+    "kind": "narr",
+    "ja": "外に出るな!!",
+    "en": "Don't go outside!!",
+    "audio": "audio/episode01/p011-01.mp3"
+   },
+   {
+    "kind": "narr",
+    "ja": "暗殺者がいる!!",
+    "en": "There's an assassin!!",
+    "audio": "audio/episode01/p011-02.mp3"
+   }
   ]
  }
 }
