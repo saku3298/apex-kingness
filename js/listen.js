@@ -16,9 +16,9 @@
     '<div class="tr-head"><strong class="tr-page"></strong>' +
     '<span class="tr-lang"><button type="button" data-l="ja">日本語</button><button type="button" data-l="en">EN</button></span>' +
     '<button type="button" class="tr-play"><span class="tr-ic">▶</span><span class="tr-pl">聞く</span></button>' +
-    '<label class="tr-auto"><input type="checkbox"> <span>自動でめくる</span></label>' +
+    '<label class="tr-auto"><input type="checkbox"> <span>自動めくり</span></label>' +
     '<button type="button" class="tr-close" aria-label="閉じる">×</button></div>' +
-    '<ol class="tr-lines"></ol><p class="tr-credit"></p>';
+    '<p class="tr-sub" aria-live="polite"></p><ol class="tr-lines"></ol><p class="tr-credit"></p>';
   document.body.appendChild(panel);
   const $ = s => panel.querySelector(s);
   const autoBox = $('.tr-auto input'); autoBox.checked = auto;
@@ -34,7 +34,7 @@
     $('.tr-page').textContent = lang === 'ja' ? pg + 'ページ' : 'Page ' + pg;
     $('.tr-pl').textContent = playing ? (lang === 'ja' ? '止める' : 'Stop') : (lang === 'ja' ? '聞く' : 'Listen');
     $('.tr-ic').textContent = playing ? '■' : '▶';
-    $('.tr-auto span').textContent = lang === 'ja' ? '自動でめくる' : 'Auto page turn';
+    $('.tr-auto span').textContent = lang === 'ja' ? '自動めくり' : 'Auto';
     panel.querySelectorAll('.tr-lang button').forEach(b => b.setAttribute('aria-pressed', b.dataset.l === lang));
     const ol = $('.tr-lines'); ol.replaceChildren();
     if (!ls.length) {
@@ -51,7 +51,7 @@
     $('.tr-play').disabled = !ls.some(l => !l.noread);
     $('.tr-credit').textContent = lang === 'ja' ? '音声：' + data.voice_credit : 'Voice: your device';
   }
-  function mark(i) { panel.querySelectorAll('.tr-lines li').forEach(li => li.classList.toggle('reading', Number(li.dataset.i) === i)); }
+  function mark(i) { const sub = $('.tr-sub'); const ls = linesFor(); sub.textContent = i >= 0 && ls[i] ? (ls[i][lang] || ls[i].ja) : ''; panel.querySelectorAll('.tr-lines li').forEach(li => { const on = Number(li.dataset.i) === i; li.classList.toggle('reading', on); if (on) li.scrollIntoView({ block: 'nearest', behavior: 'smooth' }); }); }
   function stop() {
     playing = false; waitTurn = false; queue = [];
     if (audio) { audio.pause(); audio = null; }
@@ -93,15 +93,22 @@
     qi = 0; playing = true; render(); step();
   }
   document.addEventListener('saku:page', e => {
+    const same = pages[0] === e.detail.start && pages[1] === e.detail.end;
     pages = [e.detail.start, e.detail.end];
+    if (same && !waitTurn) return;
     if (playing && waitTurn) { waitTurn = false; if (audio) audio.pause(); if (synth) synth.cancel(); setTimeout(play, 350); }
     else if (playing) stop();
     render();
   });
+  function fit() {
+    document.documentElement.style.setProperty('--trh', panel.hidden ? '0px' : panel.offsetHeight + 'px');
+    window.dispatchEvent(new Event('resize'));
+  }
+  if (window.ResizeObserver) new ResizeObserver(() => { if (!panel.hidden) fit(); }).observe(panel);
   btn.addEventListener('click', () => {
     panel.hidden = !panel.hidden; btn.setAttribute('aria-pressed', !panel.hidden);
     document.body.classList.toggle('tr-open', !panel.hidden);
-    store.set('saku:tr-open', panel.hidden ? '0' : '1'); if (panel.hidden) stop();
+    store.set('saku:tr-open', panel.hidden ? '0' : '1'); if (panel.hidden) stop(); fit();
   });
   $('.tr-close').onclick = () => btn.click();
   $('.tr-play').onclick = () => (playing ? stop() : play());
