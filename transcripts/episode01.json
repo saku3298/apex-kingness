@@ -710,6 +710,150 @@
     "en": "…is why you lost. You're the hunted.",
     "audio": "audio/episode01/p019-07.mp3"
    }
+  ],
+  "20": [
+   {
+    "kind": "narr",
+    "ja": "人類なめんな",
+    "en": "Don't underestimate humanity.",
+    "audio": "audio/episode01/p020-01.mp3"
+   },
+   {
+    "kind": "narr",
+    "ja": "じゃーな。悪いが",
+    "en": "See ya. Sorry, but—",
+    "audio": "audio/episode01/p020-02.mp3"
+   },
+   {
+    "kind": "narr",
+    "ja": "虫ケラが地球人名乗んじゃねーよ!!",
+    "en": "A lowly bug doesn't get to call itself a person of Earth!!",
+    "audio": "audio/episode01/p020-03.mp3"
+   }
+  ],
+  "22": [
+   {
+    "kind": "narr",
+    "ja": "何を見ている",
+    "en": "What are you looking at?",
+    "audio": "audio/episode01/p022-01.mp3"
+   },
+   {
+    "kind": "narr",
+    "ja": "全員刎ねるぞ。",
+    "en": "I'll cut you all down.",
+    "audio": "audio/episode01/p022-02.mp3"
+   },
+   {
+    "kind": "narr",
+    "ja": "あのバケモノが近くにこんなにいたとは…カマキリどもに狙われていたのか…",
+    "en": "There were this many of those monsters nearby… We were being targeted by the mantises…",
+    "audio": "audio/episode01/p022-03.mp3"
+   },
+   {
+    "kind": "narr",
+    "ja": "き…消えた…",
+    "en": "Th-they vanished…",
+    "audio": "audio/episode01/p022-04.mp3"
+   },
+   {
+    "kind": "narr",
+    "ja": "自分らの夢世界に帰えった…か",
+    "en": "Did they go back to their own dream world…?",
+    "audio": "audio/episode01/p022-05.mp3"
+   },
+   {
+    "kind": "narr",
+    "ja": "あるいは現実で目を覚ました。",
+    "en": "Or they woke up in reality.",
+    "audio": "audio/episode01/p022-06.mp3"
+   },
+   {
+    "kind": "narr",
+    "ja": "立って、ここにいても危ない。",
+    "en": "Get up. It's not safe to stay here.",
+    "audio": "audio/episode01/p022-07.mp3"
+   }
+  ],
+  "23": [
+   {
+    "kind": "narr",
+    "ja": "帰えったて",
+    "en": "\"Went back\"?",
+    "audio": "audio/episode01/p023-01.mp3"
+   },
+   {
+    "kind": "narr",
+    "ja": "どういうことだ。",
+    "en": "What do you mean?",
+    "audio": "audio/episode01/p023-02.mp3"
+   },
+   {
+    "kind": "narr",
+    "ja": "…。悪夢世界は私のような夢人と手をつないだ者のみが行けるのだが一つではない。",
+    "en": "… Only Dreamers like me, and those holding our hands, can enter the nightmare world—but there isn't just one.",
+    "audio": "audio/episode01/p023-03.mp3"
+   },
+   {
+    "kind": "narr",
+    "ja": "亜人も同じ。私達人類が生まれた世界線以外の亜人どもの世界線の夢もいくつもある。",
+    "en": "It's the same for Demi-humans. Besides the timeline where we humans are born, there are many dreams from the timelines of other Demi-humans.",
+    "audio": "audio/episode01/p023-04.mp3"
+   },
+   {
+    "kind": "narr",
+    "ja": "暗殺者ってのは自分達が地球人になるため他人の夢へ移動しその亜人や私達を殺す亜人。",
+    "en": "Assassins are Demi-humans who move into others' dreams and kill those Demi-humans, or us, so their own kind can become the people of Earth.",
+    "audio": "audio/episode01/p023-05.mp3"
+   },
+   {
+    "kind": "narr",
+    "ja": "悪いふうに聞こえるけど、最後には一種しか生き残れないのだから公式的。挑戦者ってやわらかく言うとそんな所…。相手も自分らの地球人背負ってる同じ立場だからね",
+    "en": "It sounds bad, but only one species can survive in the end, so it's fair play. Call them challengers if you want it softer… They're carrying their own Earth on their backs too. Same position as us.",
+    "audio": "audio/episode01/p023-06.mp3"
+   },
+   {
+    "kind": "narr",
+    "ja": "だからどんな過去や思いがあれども",
+    "en": "So whatever past or feelings they have,",
+    "audio": "audio/episode01/p023-07.mp3"
+   },
+   {
+    "kind": "narr",
+    "ja": "同情せずに踏み台にする。",
+    "en": "I'll step over them without pity.",
+    "audio": "audio/episode01/p023-08.mp3"
+   },
+   {
+    "kind": "narr",
+    "ja": "生きている世界がまるで違う。夢でも活動するということは見た目より人生2倍で生きてきている!! …ということ…。",
+    "en": "We live in completely different worlds. If you're active in dreams too, you've lived twice as long as you look!! …That's what it means…",
+    "audio": "audio/episode01/p023-09.mp3"
+   },
+   {
+    "kind": "narr",
+    "ja": "夢だとこれを現実味に感じ現実を夢に感じる。これが正しい。だが現実にもどると夢だったと思い忘れてしまう…。",
+    "en": "In a dream, this feels real and reality feels like a dream. That's how it should be. But once you're back in reality, you think it was a dream and forget…",
+    "audio": "audio/episode01/p023-10.mp3"
+   },
+   {
+    "kind": "narr",
+    "ja": "だから私はある時からメモをしている。起きたらそれを読んで本当のことだったと信じてほしい。",
+    "en": "So at some point I started keeping notes. When you wake up, read them and believe it really happened.",
+    "audio": "audio/episode01/p023-11.mp3"
+   },
+   {
+    "kind": "narr",
+    "ja": "そこに真実がある。",
+    "en": "The truth is there.",
+    "audio": "audio/episode01/p023-12.mp3"
+   },
+   {
+    "kind": "narr",
+    "ja": "あと一つ、現実にもどるのは夢で寝ること。夢人と手をつないでね。今、寝て。暗殺者がいない今。立たせる手じゃない。",
+    "en": "One more thing: to go back to reality, you sleep in the dream. Holding a Dreamer's hand. Sleep now—while there are no assassins. This hand isn't to help you up.",
+    "audio": "audio/episode01/p023-13.mp3"
+   }
   ]
  }
 }

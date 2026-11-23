@@ -69,8 +69,9 @@
     if (!playing) return;
     if (qi >= queue.length) {
       mark(-1);
-      const nextHas = data.pages[String(pages[1] + 2)];
-      if (auto && nextHas) { waitTurn = true; document.dispatchEvent(new CustomEvent('saku:next')); }
+      // 先のページに文字起こしがあれば、文字のないページも含めてめくり続ける
+      const later = Object.keys(data.pages).some(k => Number(k) > pages[1] + 1);
+      if (auto && later) { waitTurn = true; document.dispatchEvent(new CustomEvent('saku:next')); }
       else stop();
       return;
     }
@@ -91,7 +92,10 @@
   function play() {
     const ls = linesFor();
     queue = ls.map((l, i) => ({ l, i })).filter(x => !x.l.noread);
-    qi = 0; playing = true; render(); step();
+    qi = 0; playing = true; render();
+    // 文字のないページ（絵だけ）は、少し見せてから次へ
+    if (!queue.length) { setTimeout(() => { if (playing && !queue.length) step(); }, 4000); return; }
+    step();
   }
   document.addEventListener('saku:page', e => {
     const same = pages[0] === e.detail.start && pages[1] === e.detail.end;
